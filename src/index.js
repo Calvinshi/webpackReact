@@ -1,5 +1,6 @@
-import React from 'react'
-import { render } from 'react-dom'
+import 'babel-polyfill';
+import React from 'react';
+import { render } from 'react-dom';
 
 class Hello extends React.Component {
     render() {
@@ -12,3 +13,9 @@ render(
     <Hello/>,
     document.getElementById('root')
 )  
+
+
+if (module.hot) {
+    // 实现热更新
+    module.hot.accept();
+  }

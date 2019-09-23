@@ -1,14 +1,32 @@
+// {
+//     "presets": ["react", "es2015"],
+//     "env": {
+//       "dev": {
+//           "plugins": [["react-transform", {
+//              "transforms": [{
+//                "transform": "react-transform-hmr",
+//                "imports": ["react"],
+//                "locals": ["module"]
+//              }]
+//           }]]
+//       }
+//     }
+//   }
+
 {
-    "presets": ["react", "es2015"],
-    "env": {
-      "dev": {
-          "plugins": [["react-transform", {
-             "transforms": [{
-               "transform": "react-transform-hmr",
-               "imports": ["react"],
-               "locals": ["module"]
-             }]
-          }]]
-      }
-    }
-  }
+    "presets": [
+        [
+            "env",
+            {
+                "loose": true,  
+                "modules": false 
+            }
+        ],
+        "es2015",
+        "react",
+      "babel-preset-stage-3"
+    ],
+    "plugins": [
+        "transform-runtime"
+      ]
+}
