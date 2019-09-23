@@ -12,21 +12,20 @@
 //       }
 //     }
 //   }
-
 {
     "presets": [
         [
             "env",
             {
-                "loose": true,  
-                "modules": false 
+                "loose": true,
+                "modules": false
             }
         ],
         "es2015",
         "react",
-      "babel-preset-stage-3"
+        "babel-preset-stage-3"
     ],
     "plugins": [
         "transform-runtime"
-      ]
+    ]
 }
