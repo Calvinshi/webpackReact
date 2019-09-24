@@ -7,9 +7,6 @@ import {Provider} from 'react-redux'
 import reducer from './reducer/saleryReducer'
 import {AppContainer} from 'react-hot-loader'
 
-
-
-
 const store = createStore(reducer)
 console.log(store.getState())
 

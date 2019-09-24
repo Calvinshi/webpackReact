@@ -1,4 +1,7 @@
-const tiger = 1000
+// original react state struture but not react's state 
+const tiger = {
+    count: 1000
+}
 
 const increase = {
     type : "plus"
@@ -11,11 +14,13 @@ const decreasee = {
 const reducer = (state = tiger, action )=>{
     switch (action.type) {
         case "plus":
-            return state += 100;
+            state.count += 100;
+            return Object.assign({},state); //must return new one ,then page will refresh 
             break;
         case "subtract":
-            return state -= 100;
-
+            state.count -= 100;
+            return Object.assign({},state);
+            break;
         default:
             return state;
     }

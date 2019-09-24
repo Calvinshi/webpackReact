@@ -7,13 +7,14 @@ class App extends Component{
         console.log(this.props)
     } 
     render(){
-        const {PayIncrease , PayDecrease } =  this.props;
+        const {qqq , www } =  this.props;
         return(
             <div className = "App">
                 <div className = "App">
-                    <h2>current Month selary {this.props.tiger} </h2>
-                    <button onClick ={PayIncrease} >plus</button>
-                    <button onClick ={PayDecrease} >subtract</button>
+                    <h2>current Month selary {this.props.haha.count} </h2>
+                    <button onClick ={qqq} >plus</button>
+                    <button onClick ={www} >subtract</button>
+                    
                 </div>
             </div>
 
@@ -26,7 +27,7 @@ class App extends Component{
 // );
 function mapStateToProps(state){
     return {
-        tiger: state
+        haha: state
     }
 }
 
@@ -34,8 +35,8 @@ function mapStateToProps(state){
 
 function mapDispatchToProps(dispatch) {
     return {
-        PayIncrease : () => dispatch({type: "plus"}),
-        PayDecrease : ()=> dispatch({type: "subtract"})
+        qqq : () => dispatch({type: "plus"}),
+        www : ()=> dispatch({type: "subtract"})
     }
 }
 
