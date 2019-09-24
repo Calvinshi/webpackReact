@@ -26,6 +26,7 @@
         "babel-preset-stage-3"
     ],
     "plugins": [
-        "transform-runtime"
+        "transform-runtime",
+        "react-hot-loader/babel"
     ]
 }

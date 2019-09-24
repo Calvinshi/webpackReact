@@ -6,7 +6,10 @@ const webpack = require('webpack');
 module.exports={
 
     mode: 'development',
-    entry:__dirname+"/src/index.js",
+    entry:[
+        'react-hot-loader/patch',
+        __dirname+"/src/index.js",
+    ],
     output:{
         path: path.resolve(__dirname, 'dist'),
         filename:'bundle.js'
@@ -21,10 +24,11 @@ module.exports={
         }),
         new CleanWebpackPlugin(),
         new webpack.NamedModulesPlugin(),
-        new webpack.HotModuleReplacementPlugin()
+        new webpack.HotModuleReplacementPlugin(['dist']),
     ],
     devServer:{
-        contentBase:"./src",
+        contentBase:path.join(__dirname, "dist"),
+        compress: true,
         port: 3000,             // 端口
         open: true,             // 自动打开浏览器
         hot: true,               // 开启热更新
@@ -44,22 +48,38 @@ module.exports={
     },
     module: {
         rules: [
-            // {
-            //     test: /\.(js|jsx)$/,
-            //     use: {
-            //         loader: 'babel-loader',
-            //         options: {
-            //             presets: ['es2015', 'react'],
-            //         }
-            //     },
-            //     exclude: /node_modules/
-            // }
             {
-                test:/\.js$/,
-                use: 'babel-loader',
-                include: /src/,          // 只转化src目录下的js
-                exclude: /node_modules/  // 排除掉node_modules，优化打包速度
-            }
+                test: /\.(js|jsx)$/,
+                use: {
+                    loader: 'babel-loader',
+                    options: {
+                        presets: ['es2015', 'react'],
+                        plugins: ['react-hot-loader/babel'],
+                    }
+                },
+                exclude: /node_modules/
+            },
+            // {
+            //     test:/\.(js|jsx)$/,
+            //     use: 'babel-loader',
+            //     include: /src/,          // 只转化src目录下的js
+            //     exclude: /node_modules/  // 排除掉node_modules，优化打包速度
+            // },
+            {
+                test: /\.(css|less)$/,
+                use: [
+                  { loader: 'style-loader' },
+                  {
+                    loader: 'css-loader',
+                    options: {
+                      modules: true
+                    }
+                  },
+                  {
+                      loader:"less-loader"
+                  }
+                ]
+              }
         ]
     }
 }
