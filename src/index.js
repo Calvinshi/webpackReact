@@ -3,6 +3,7 @@ import 'react-hot-loader'
 import React from "react";
 import { render } from "react-dom";
 import App from './app'
+// import './app.css';
 // import { hot } from 'react-hot-loader';
 
 class Hello extends React.Component {
