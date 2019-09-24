@@ -1,9 +1,10 @@
 // import "babel-polyfill";
+// import { hot } from 'react-hot-loader';
 import 'react-hot-loader'
 import React from "react";
 import { render } from "react-dom";
 import App from './app'
-// import { hot } from 'react-hot-loader';
+
 
 class Hello extends React.Component {
   render() {
