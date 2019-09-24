@@ -7,7 +7,7 @@ module.exports={
 
     mode: 'development',
     entry:[
-        'react-hot-loader/patch',
+        // 'react-hot-loader/patch',
         __dirname+"/src/index.js",
     ],
     output:{
@@ -71,12 +71,9 @@ module.exports={
                   { loader: 'style-loader' },
                   {
                     loader: 'css-loader',
-                    options: {
-                      modules: true
-                    }
                   },
                   {
-                      loader:"less-loader"
+                    loader:"less-loader"
                   }
                 ]
               }

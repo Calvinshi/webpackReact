@@ -1,21 +1,26 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-import {BrowserRouter as Router , Route} from 'react-router-dom';
+import {BrowserRouter as Router , Route , Switch ,Redirect} from 'react-router-dom';
 import PageA from './pageA';
 import PageB from './pageB';
 import PageC from './pageC';
 import Nav from './nav';
+import Error from './error';
+
 
 
 ReactDOM.render(
     <Router>
         <Nav></Nav>
-        <div>
+        <Switch>
             <Route exact path="/" component={PageA} />
             <Route  path="/b" component={PageB} />
-            <Route  path="/c" component={PageC} />
-        </div>
+            <Route  path="/c/:aa/:bb" component={PageC} />
+            <Redirect from = "/redirect" to="/b"></Redirect>
+            <Route component = {Error} />
+
+        </Switch>
     </Router>,
     document.getElementById("root")
 );
