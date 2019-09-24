@@ -20,3 +20,4 @@ const reducer = (state = tiger, action )=>{
             return state;
     }
 }
+export default reducer;

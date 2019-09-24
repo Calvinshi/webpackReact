@@ -20,4 +20,24 @@ class App extends Component{
         ) 
     }
 }
+
+// store.subscribe(()=>
+//     console.log(store.getState())
+// );
+function mapStateToProps(state){
+    return {
+        tiger: state
+    }
+}
+
+// store.dispatch(increase);
+
+function mapDispatchToProps(dispatch) {
+    return {
+        PayIncrease : () => dispatch({type: "plus"}),
+        PayDecrease : ()=> dispatch({type: "subtract"})
+    }
+}
+
+// App = connect(mapStateToProps,mapDispatchToProps)(App)
 export default App = connect(mapStateToProps, mapDispatchToProps)(App)
