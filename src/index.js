@@ -1,21 +1,21 @@
-// import "babel-polyfill";
-import 'react-hot-loader'
-import React from "react";
-import { render } from "react-dom";
-import App from './app'
-// import { hot } from 'react-hot-loader';
+import React from 'react';
+import ReactDOM from 'react-dom';
 
-class Hello extends React.Component {
-  render() {
-    return <p>hello 45687</p>
-  }
-}
-render(
-    // <AppContainer>
-        <App />
-    // </AppContainer>
-    ,
-    document.getElementById("root"));
+import {BrowserRouter as Router , Route} from 'react-router-dom';
+import PageA from './pageA';
+import PageB from './pageB';
+import PageC from './pageC';
+ReactDOM.render(
+    <Router>
+        <div>
+            <Route exact path="/" component={PageA} />
+            <Route  path="/b" component={PageB} />
+            <Route  path="/c" component={PageC} />
+        </div>
+    </Router>,
+    document.getElementById("root")
+);
+
 
 if (module.hot) {
   module.hot.accept("./print.js", function() {
