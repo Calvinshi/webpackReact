@@ -3,6 +3,10 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const {CleanWebpackPlugin} = require('clean-webpack-plugin');
 const webpack = require('webpack');
 
+function resolve (dir) {
+    return path.join(__dirname, dir)
+  }
+
 module.exports={
 
     mode: 'development',
@@ -42,6 +46,7 @@ module.exports={
           component:path.join(__dirname,'src/component'),
           actions:path.join(__dirname,'src/redux/actions'),
           reducers:path.join(__dirname,'src/redux/reducers'),
+          '@': resolve('src'),
         },
         // 省略后缀
         extensions: ['.js', '.jsx', '.json', '.css', '.scss', '.less']
