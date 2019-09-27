@@ -33,6 +33,7 @@ function mapStateToProps(state){
 
 // store.dispatch(increase);
 
+//dispatch action object / using thunk actioncould be one function so that it will could using async function 
 function mapDispatchToProps(dispatch) {
     return {
         qqq : () => dispatch({type: "plus"}),
