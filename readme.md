@@ -1,4 +1,4 @@
-#css problem handle:
+# css problem handle:
 1.webpack中的css-loader的options中的modules属性为true时：
 
 在jsx中引入时用 import XXX from 'xxx.css'
@@ -11,7 +11,7 @@
 
 在jsx中使用方式： className="classname1 classname2"
 
-#async function involve (redux-thunk function)
+# async function involve (redux-thunk function)
 
 design: send the action and all state as parameters in the thunk function , waiting the thunk funciotn asynchronous done then execute really dispatch function.
 when you are using thunk middleware , if you will return an function object , thunk will help to call the action once more with the arguemants dispatch  getState and exrea Argument.
