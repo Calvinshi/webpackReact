@@ -34,3 +34,44 @@ export default thunk;
 ```
 
 relevant middleware:  redux-promise redux-composable-fetch redux-observable redux-sage redux-observable
+
+redux-saga fork founction 
+```javascript
+function* goAge(action){
+
+    function* x() {
+        yield setTimeout(() => {
+           console.log('after you image loading success') 
+        }, 2000);
+    }
+
+    const p = function() {
+        return fetch(`api}`,{
+            method: 'GET'
+        })
+        .then(res => res.json())
+        .then(res => {
+            console.log(res)
+            return res
+        })
+    }
+    const res = yield call(p)
+
+    yield take(actionTypes.MATCH_TAKE)   // blocking until you triger action behaviour 
+
+    yield fork(x)  // no blocking，when x()generator trigger ，run yield put right now 
+
+    yield put({
+        type: actionTypes.GET_AGE_SUCCESS,
+        payload: res
+    })
+
+}
+
+function* rootSaga() {
+    yield takeEvery(actionTypes.GET_AGE, goAge)
+}
+
+export default rootSaga;
+
+```
