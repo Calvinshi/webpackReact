@@ -1,26 +1,33 @@
-// import "babel-polyfill";
-// import { hot } from 'react-hot-loader';
-import 'react-hot-loader'
-import React from "react";
-import { render } from "react-dom";
-import App from './app'
+import "babel-polyfill"
 
+import React from 'react'
+import ReactDOM from 'react-dom'
+import { createStore, applyMiddleware } from 'redux'
+import createSagaMiddleware from 'redux-saga'
 
-class Hello extends React.Component {
-  render() {
-    return <p>hello 45687</p>
-  }
+import Counter from './counter'
+import reducer from './reducers'
+import rootSaga from './sagas'
+
+const sagaMiddleware = createSagaMiddleware()
+const store = createStore(
+  reducer,
+  applyMiddleware(sagaMiddleware)
+)
+sagaMiddleware.run(rootSaga)
+
+const action = type => store.dispatch({type})
+
+function render() {
+  ReactDOM.render(
+    <Counter
+      value={store.getState()}
+      onIncrement={() => action('INCREMENT')}
+      onDecrement={() => action('DECREMENT')}
+      onIncrementAsync={() => action('INCREMENT_ASYNC')}/>,
+    document.getElementById('root')
+  )
 }
-render(
-    // <AppContainer>
-        <App />
-    // </AppContainer>
-    ,
-    document.getElementById("root"));
 
-if (module.hot) {
-  module.hot.accept("./print.js", function() {
-    console.log("Accepting the updated printMe module!");
-    printMe();
-  });
-}
+render()
+store.subscribe(render)
