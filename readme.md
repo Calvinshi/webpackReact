@@ -16,6 +16,8 @@
 design: send the action and all state as parameters in the thunk function , waiting the thunk funciotn asynchronous done then execute really dispatch function.
 when you are using thunk middleware , if you will return an function object , thunk will help to call the action once more with the arguemants dispatch  getState and exrea Argument.
 
+
+
 ```javascript
 function createThunkMiddleware(extraArgument) {
   return ({ dispatch, getState }) => next => action => {
@@ -75,3 +77,45 @@ function* rootSaga() {
 export default rootSaga;
 
 ```
+yield cancel task when fork return task Object you don't need it done any more.
+
+const task = yield fork( effects, ...parameters);
+
+# ES6
+export : (came form es6.Ruanyifeng.com)
+
+// 写法一
+export var m = 1;
+
+// 写法二
+var m = 1;
+export {m};
+
+// 写法三
+var n = 1;
+export {n as m};
+
+// 报错
+function f() {}
+export f;
+
+// 正确
+export function f() {};
+
+// 正确
+function f() {}
+export {f};
+
+// 第一组
+export default function crc32() { // 输出
+  // ...
+}
+
+import crc32 from 'crc32'; // 输入
+
+// 第二组
+export function crc32() { // 输出
+  // ...
+};
+
+import {crc32} from 'crc32'; // 输入
