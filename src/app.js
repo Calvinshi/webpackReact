@@ -42,4 +42,4 @@ function mapDispatchToProps(dispatch) {
 }
 
 // App = connect(mapStateToProps,mapDispatchToProps)(App)
-export default App = connect(mapStateToProps, mapDispatchToProps)(App)
+export default App = connect(mapStateToProps, {qqq:()=>({type:"plus"})})(App)

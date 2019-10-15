@@ -16,11 +16,11 @@ const reducer = (state = tiger, action )=>{
         case "plus":
             state.count += 100;
             return Object.assign({},state); //must return new one ,then page will refresh 
-            break;
+            
         case "subtract":
             state.count -= 100;
             return Object.assign({},state);
-            break;
+            
         default:
             return state;
     }
