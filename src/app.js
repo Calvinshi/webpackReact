@@ -15,16 +15,17 @@ class App extends React.Component{
         this.props.closeAlert();
       }
     handleChange (e){
+        this.state.data = 4;
         // this.state.data++
-        this.setState({data:this.state.data+1})
-        this.forceUpdate();
-        console.log(this.state)
-        this.setState({data:this.state.data+1})
-        this.forceUpdate();
-        console.log(this.state)
-        this.setState({data:this.state.data+1})
-        console.log(this.state)
-        this.forceUpdate();
+        // this.setState({data:this.state.data+1})
+        // this.forceUpdate();
+        // console.log(this.state)
+        // this.setState({data:this.state.data+1})
+        // this.forceUpdate();
+        // console.log(this.state)
+        // this.setState({data:this.state.data+1})
+        // console.log(this.state)
+        // this.forceUpdate();
         // update right now 
         // setTimeout(() => {
         //     this.setState({data:this.state.data+1})
@@ -35,12 +36,24 @@ class App extends React.Component{
         //     console.log(this.state)
         // }, 1000);
     }
+    handleClick(){
+        console.log(1111);
+        
+    }
+    // handetwo = ()=>{
+    //     console.log(22222);
+    // }
+    handetwo (){
+        console.log(22222);
+    }
 
     render(){
         return(
             <div className = {appcss.blue}>hello world ....{this.state.data}
                 <div>
                     <button onClick= {()=> this.handleChange()}>Button</button>
+                    <button onClick = {this.handleClick}>Click</button>
+                    <button onClick = {this.handetwo}>two</button>
                 </div>
                 <Progress></Progress>
             </div>
