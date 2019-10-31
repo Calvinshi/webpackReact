@@ -3,11 +3,15 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const {CleanWebpackPlugin} = require('clean-webpack-plugin');
 const webpack = require('webpack');
 
+function resolve (dir) {
+    return path.join(__dirname, dir)
+  }
+
 module.exports={
 
     mode: 'development',
     entry:[
-        'react-hot-loader/patch',
+        // 'react-hot-loader/patch',
         __dirname+"/src/index.js",
     ],
     output:{
@@ -20,7 +24,7 @@ module.exports={
             // 用哪个html作为模板
             // 在src目录下创建一个index.html页面当做模板来用
             template: './src/index.html',
-            hash: true, // 会在打包好的bundle.js后面加上hash串
+            hash: true, // 会在打包好的bundle.js后面加上hash串 
         }),
         new CleanWebpackPlugin(),
         new webpack.NamedModulesPlugin(),
@@ -42,6 +46,7 @@ module.exports={
           component:path.join(__dirname,'src/component'),
           actions:path.join(__dirname,'src/redux/actions'),
           reducers:path.join(__dirname,'src/redux/reducers'),
+          '@': resolve('src'),
         },
         // 省略后缀
         extensions: ['.js', '.jsx', '.json', '.css', '.scss', '.less']
@@ -72,7 +77,7 @@ module.exports={
                   {
                     loader: 'css-loader',
                     options: {
-                      modules: true
+                        modules: true,
                     }
                   },
                   {

@@ -1,6 +1,11 @@
+<<<<<<< HEAD
 import React, {Component} from 'react'
 import {connect} from 'react-redux'
+=======
+>>>>>>> master
 import { hot } from 'react-hot-loader';
+import React from 'react'
+import appcss from './app.css'
 
 class App extends Component{
     componentDidMount() {
@@ -9,6 +14,7 @@ class App extends Component{
     render(){
         const {qqq , www } =  this.props;
         return(
+<<<<<<< HEAD
             <div className = "App">
                 <div className = "App">
                     <h2>current Month selary {this.props.haha.count} </h2>
@@ -18,6 +24,9 @@ class App extends Component{
                 </div>
             </div>
 
+=======
+            <div className = {appcss.blue}>hello world ....</div>
+>>>>>>> master
         ) 
     }
 }

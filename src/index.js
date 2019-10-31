@@ -1,16 +1,9 @@
+// import "babel-polyfill";
+// import { hot } from 'react-hot-loader';
 import 'react-hot-loader'
 import React,{Component} from "react";
 import { render } from "react-dom";
 import App from './app'
-import {createStore} from 'redux'   
-import {Provider} from 'react-redux'
-import reducer from './reducer/saleryReducer'
-import {AppContainer} from 'react-hot-loader'
-
-const store = createStore(reducer)
-console.log(store.getState())
-
-// import { hot } from 'react-hot-loader';
 
 render(
     <Provider store = {store}>
