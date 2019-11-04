@@ -8,6 +8,10 @@ export default class Progress extends Component {
             percent: 10
         };
     }
+    componentDidUpdate(){
+        console.log('progress did update...');
+        
+    }
     // increase = ()=>{
 
     // }
@@ -61,8 +65,8 @@ export default class Progress extends Component {
                     </div>
                     <div className="progress-info" >{percent}%</div>
                 </div>
-                <div className="btns">
-                    <button onClick={this.decrease}>-</button>
+                <div className="btns" ref="a1">
+                    <button onClick={this.decrease} ref="a2">-</button>
                     <button onClick={this.increase}>+</button>
                 </div>
             </div>
